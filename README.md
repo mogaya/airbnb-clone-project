@@ -53,8 +53,6 @@ Represents hosts and guests
 - A user can list multiple properties.
 - A user can make multiple bookings and write multiple reviews.
 
----
-
 ### Properties
 
 Represents listings available for rent.
@@ -72,8 +70,6 @@ Represents listings available for rent.
 - A property belongs to one user (host).
 - A property can have multiple bookings and reviews.
 
----
-
 ### Bookings
 
 Represents a reservation made by a guest.
@@ -89,8 +85,6 @@ Represents a reservation made by a guest.
 **Relationships:**
 
 - A booking is linked to one user (guest) and one property.
-
----
 
 ### Reviews
 
@@ -108,8 +102,6 @@ Represents feedback left by guests
 
 - A review is linked to one user and one property.
 
----
-
 ### Payments
 
 Represents payment transactions for bookings.
@@ -126,8 +118,6 @@ Represents payment transactions for bookings.
 
 - A payment is tied to one booking.
 
----
-
 ### Entity Relationships Summary
 
 - One **User** can own many **Properties**.
@@ -135,3 +125,14 @@ Represents payment transactions for bookings.
 - One **Property** can receive many **Bookings** and **Reviews**.
 - One **Booking** is associated with one **Payment**.
 - One **User** can write many **Reviews**.
+
+## Feature Breakdown
+
+- **User Management**: Handles user registration, login, profile management, and role distinction between hosts and guests. This feature ensures secure access to the platform and tailored functionality based on the user type.
+- **Property Management**: Enables hosts to create, update, and delete property listings, including details like title, description, price, and location. This allows hosts to manage their rentals and ensures accurate information for potential guests.
+- **Booking System**: Allows guests to book available properties for specific dates. This feature manages check-in and check-out dates, availability conflicts, and booking confirmations, forming the backbone of the rental process.
+- **Review System**: Permits guests to leave reviews and ratings for properties they’ve booked. This builds trust among users and helps maintain quality standards across listings.
+- **Payment Integration**: Supports secure payment processing for completed bookings. Payments are linked to individual bookings and tracked for status, ensuring a smooth transaction flow between guests and hosts.
+- **Notifications & Background Tasks**: Utilizes Celery and Redis to send email confirmations, booking reminders, or status updates. This improves communication and user engagement through timely, automated notifications.
+- **Search & Filtering**: Provides functionality to search listings based on parameters like location, price range, and availability. This helps guests find suitable properties quickly and efficiently.
+- **Containerization & CI/CD**: The entire project is containerized using Docker and integrated with CI/CD pipelines for streamlined development and deployment. This ensures consistent environments and faster iteration cycles.
