@@ -136,3 +136,20 @@ Represents payment transactions for bookings.
 - **Notifications & Background Tasks**: Utilizes Celery and Redis to send email confirmations, booking reminders, or status updates. This improves communication and user engagement through timely, automated notifications.
 - **Search & Filtering**: Provides functionality to search listings based on parameters like location, price range, and availability. This helps guests find suitable properties quickly and efficiently.
 - **Containerization & CI/CD**: The entire project is containerized using Docker and integrated with CI/CD pipelines for streamlined development and deployment. This ensures consistent environments and faster iteration cycles.
+
+## API Security
+
+### Authentication
+
+- Secure user authentication using token-based methods such as JWT (JSON Web Tokens) or session-based authentication. This ensures that only registered users can access protected endpoints and prevents unauthorized access to sensitive data.
+- **Importance**: Maintains platform performance and availability by blocking suspicious activity and malicious requests.
+
+### Data Encryption
+
+- Encryption of sensitive data, such as passwords and payment information
+- **Importance**: Protects user credentials and payment data from interception or theft
+
+### Input Validation & Sanitization
+
+- All user input is validated and sanitized to prevent SQL injection, XSS (Cross-site Scripting), and other injection attacks.
+- **Importance**: Maintains database integrity and prevents attackers from injecting malicious scripts or commands into the system.
