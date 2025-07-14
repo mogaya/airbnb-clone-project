@@ -153,3 +153,22 @@ Represents payment transactions for bookings.
 
 - All user input is validated and sanitized to prevent SQL injection, XSS (Cross-site Scripting), and other injection attacks.
 - **Importance**: Maintains database integrity and prevents attackers from injecting malicious scripts or commands into the system.
+
+## CI/CD Pipeline
+
+CI/CD stands for **Continuous Integration** and **Continuous Deployment/Delivery**. It is a set of automated processes that enable developers to build, test, and deploy code more frequently and reliably. CI ensures that every code change is automatically tested and integrated into the main branch, while CD automates the deployment of that code to staging or production environments.
+
+### Importance
+
+Implementing CI/CD in the Airbnb Clone Project:
+
+- **Reduces manual errors** during deployment.
+- **Ensures faster feedback loops** through automated testing.
+- **Improves code quality** by catching bugs early.
+- **Enables rapid iteration** and feature delivery without downtime.
+
+### Tools Used
+
+- **GitHub Actions**: For automating workflows like testing, linting, and deployment on every push or pull request.
+- **Docker**: Ensures consistency across development, testing, and production environments by containerizing the application.
+- **Docker Compose**: Used to manage multi-container setups during development or testing.
