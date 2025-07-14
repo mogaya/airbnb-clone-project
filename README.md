@@ -33,3 +33,105 @@ Welcome to the **Airbnb Clone Project** - a web app that mirrors the core functi
 - **Redis**: Used for caching and managing session data.
 - **Docker**: Containerization for consistent development and production environments.
 - **CI/CD Pipelines**: Ensures continuous integration and deployment.
+
+## Database Design
+
+### Users
+
+Represents hosts and guests
+
+**Fields:**
+
+- `id`: Unique identifier
+- `full_name`: Full name of the user
+- `email`: User’s email address (unique)
+- `password`: Hashed password
+- `role`: Host or Guest
+
+**Relationships**
+
+- A user can list multiple properties.
+- A user can make multiple bookings and write multiple reviews.
+
+---
+
+### Properties
+
+Represents listings available for rent.
+
+**Fields:**
+
+- `id`: Unique identifier
+- `title`: Title of the listing
+- `description`: Detailed description of the property
+- `location`: City or address of the property
+- `price_per_night`: Cost per night
+
+**Relationships:**
+
+- A property belongs to one user (host).
+- A property can have multiple bookings and reviews.
+
+---
+
+### Bookings
+
+Represents a reservation made by a guest.
+
+**Fields:**
+
+- `id`: Unique identifier
+- `user_id`: References the guest who made the booking
+- `property_id`: References the property being booked
+- `check_in_date`: Start of stay
+- `check_out_date`: End of stay
+
+**Relationships:**
+
+- A booking is linked to one user (guest) and one property.
+
+---
+
+### Reviews
+
+Represents feedback left by guests
+
+**Fields:**
+
+- `id`: Unique identifier
+- `user_id`: Guest who wrote the review
+- `property_id`: Property being reviewed
+- `rating`: Numerical score (e.g., 1–5)
+- `comment`: Text feedback
+
+**Relationships:**
+
+- A review is linked to one user and one property.
+
+---
+
+### Payments
+
+Represents payment transactions for bookings.
+
+**Fields:**
+
+- `id`: Unique identifier
+- `booking_id`: Reference to the related booking
+- `amount`: Payment amount
+- `status`: e.g., pending, completed, failed
+- `payment_method`: e.g., credit card, PayPal
+
+**Relationships:**
+
+- A payment is tied to one booking.
+
+---
+
+### Entity Relationships Summary
+
+- One **User** can own many **Properties**.
+- One **User** can make many **Bookings**.
+- One **Property** can receive many **Bookings** and **Reviews**.
+- One **Booking** is associated with one **Payment**.
+- One **User** can write many **Reviews**.
